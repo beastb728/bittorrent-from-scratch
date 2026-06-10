@@ -1,3 +1,6 @@
+INFO_START = None
+INFO_END = None
+
 def parse_string(data, index):
     colon_index = data.index(b':', index)
 
@@ -36,14 +39,24 @@ def parse_list(data, index):
 
 
 def parse_dictionary(data, index):
+    global INFO_START, INFO_END
+
     result = {}
 
     index += 1  # skip 'd'
 
     while data[index:index + 1] != b'e':
+
         key, index = decode(data, index)
 
-        value, index = decode(data, index)
+        if key == b'info':
+            INFO_START = index
+
+            value, index = decode(data, index)
+
+            INFO_END = index
+        else:
+            value, index = decode(data, index)
 
         result[key] = value
 

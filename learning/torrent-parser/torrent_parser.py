@@ -1,6 +1,6 @@
-```python
 from parser import decode
-
+import hashlib
+import parser
 
 # ============================================================
 # READING THE TORRENT FILE
@@ -10,7 +10,11 @@ with open("ubuntu-26.04-desktop-amd64.iso.torrent", "rb") as f:
     data = f.read()
 
 torrent_data, next_index = decode(data)
+info_bytes = data[parser.INFO_START:parser.INFO_END]
 
+info_hash = hashlib.sha1(info_bytes).hexdigest()
+
+print("Info Hash:", info_hash)
 
 # ============================================================
 # TOP LEVEL STRUCTURE OF THE .TORRENT FILE
@@ -178,5 +182,4 @@ Therefore:
 
 number_of_pieces = len(pieces) // 20
 '''
-```
 
