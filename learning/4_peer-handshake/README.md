@@ -1,4 +1,4 @@
-# Phase 5 - Peer Handshake
+# Phase 4 - Peer Handshake
 
 ## Objective
 

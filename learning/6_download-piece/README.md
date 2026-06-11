@@ -1,4 +1,4 @@
-# Phase 7 - Piece Download and Verification
+# Phase 6 - Piece Download and Verification
 
 ## Objective
 

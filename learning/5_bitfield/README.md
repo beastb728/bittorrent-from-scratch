@@ -1,4 +1,4 @@
-# Phase 6 - Bitfield Exchange
+# Phase 5 - Bitfield Exchange
 
 ## Objective
 
